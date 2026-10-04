@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import './globals.css';
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://fishhouse-seafood.cheeky-betta-7575.chatgpt.site'),
+  metadataBase: new URL('https://fishhouse-seafood.lexipro2001.chatgpt.site'),
   title: 'Fishhouse | Fresh from the tide',
   description: 'A neighborhood fishhouse serving the day’s best catch, simply cooked over flame.',
   openGraph: {
