@@ -2,66 +2,72 @@
 
 import { useState } from 'react';
 
-const menu = [
-  { name: 'Crispy Gulf Oysters', note: 'cornmeal, lemon, house hot sauce', price: '$18' },
-  { name: 'Cedar-Roasted Salmon', note: 'spring peas, charred leek, brown butter', price: '$34' },
-  { name: 'Dockside Fish & Chips', note: 'dayboat catch, malt vinegar, tartar', price: '$26' },
+const menuGroups = [
+  { number: '01', title: 'Fish House Favorites', copy: 'The fish dishes you already know and love, served without the fuss.' },
+  { number: '02', title: 'Pizzas', copy: 'New pies, bold toppings, and plenty to share around the table.' },
+  { number: '03', title: 'Subs & Sandwiches', copy: 'Stacked high, made fresh, and built for a hungry afternoon by the water.' },
+  { number: '04', title: 'Shareables', copy: 'Snacks, starters, and pass-it-around plates for the whole crew.' },
 ];
 
 export default function Home() {
   const [navOpen, setNavOpen] = useState(false);
-  const [reserved, setReserved] = useState(false);
 
   return (
-    <main className="min-h-screen overflow-hidden bg-[#f3efe5] text-[#17352f]">
-      <div className="mx-auto max-w-[1500px] px-5 sm:px-8 lg:px-12">
-        <nav className="flex h-24 items-center justify-between border-b border-[#17352f]/20" aria-label="Main navigation">
-          <a href="#top" className="font-serif text-[1.65rem] font-bold tracking-[-0.04em]">FISHHOUSE<span className="text-[#e34a2c]">.</span></a>
-          <div className="hidden items-center gap-9 text-sm font-semibold md:flex">
-            <a className="transition hover:text-[#e34a2c]" href="#menu">Menu</a>
-            <a className="transition hover:text-[#e34a2c]" href="#story">Our story</a>
-            <a className="transition hover:text-[#e34a2c]" href="#visit">Visit</a>
-          </div>
-          <button onClick={() => setReserved(true)} className="hidden rounded-full bg-[#17352f] px-6 py-3 text-sm font-semibold text-[#f3efe5] transition hover:-translate-y-0.5 hover:bg-[#e34a2c] md:block">Book a table</button>
-          <button onClick={() => setNavOpen(!navOpen)} className="grid h-11 w-11 place-items-center rounded-full border border-[#17352f]/30 text-xl md:hidden" aria-label="Toggle menu" aria-expanded={navOpen}>☰</button>
-        </nav>
-        {navOpen && <div className="flex flex-col gap-4 border-b border-[#17352f]/20 py-5 text-lg font-semibold md:hidden"><a href="#menu" onClick={() => setNavOpen(false)}>Menu</a><a href="#story" onClick={() => setNavOpen(false)}>Our story</a><a href="#visit" onClick={() => setNavOpen(false)}>Visit</a><button onClick={() => setReserved(true)} className="mt-2 rounded-full bg-[#17352f] px-5 py-3 text-[#f3efe5]">Book a table</button></div>}
-
-        <section id="top" className="grid min-h-[calc(100vh-96px)] items-center gap-12 py-14 lg:grid-cols-[1.1fr_.9fr] lg:py-20">
-          <div>
-            <p className="mb-6 text-xs font-bold uppercase tracking-[0.28em] text-[#e34a2c]">Seafood • fire • good company</p>
-            <h1 className="max-w-4xl font-serif text-[clamp(4.5rem,10vw,9.5rem)] font-bold leading-[.78] tracking-[-0.075em]">Fresh from<br/><span className="italic text-[#e34a2c]">the tide.</span></h1>
-            <div className="mt-10 flex flex-col gap-6 sm:flex-row sm:items-center">
-              <p className="max-w-sm text-base leading-7 text-[#17352f]/70">A neighborhood fishhouse serving the day’s best catch, simply cooked over flame and shared around the table.</p>
-              <a href="#menu" className="group inline-flex items-center gap-3 font-bold">Explore today’s menu <span className="grid h-11 w-11 place-items-center rounded-full border border-[#17352f] transition group-hover:bg-[#17352f] group-hover:text-white">↓</span></a>
-            </div>
-          </div>
-          <div className="relative mx-auto aspect-[4/5] w-full max-w-xl rounded-[48%_48%_9%_9%] bg-[#89a99f] p-6 shadow-[18px_18px_0_#e34a2c]">
-            <div className="grid h-full place-items-center overflow-hidden rounded-[48%_48%_7%_7%] border border-[#f3efe5]/50 bg-[#17352f] p-8 text-center text-[#f3efe5]">
-              <div><div className="mx-auto mb-8 h-32 w-32 rounded-full border-2 border-[#f3efe5]/60 p-4"><div className="h-full w-full rounded-full border border-dashed border-[#f3efe5]/50" /></div><p className="font-serif text-4xl italic">Today’s catch</p><p className="mt-4 text-xs font-bold uppercase tracking-[0.25em] text-[#f3efe5]/60">Wild striped bass • Montauk</p></div>
-            </div>
-            <div className="absolute -left-6 bottom-12 -rotate-6 rounded-full bg-[#f4c95d] px-6 py-4 text-center text-xs font-bold uppercase tracking-widest shadow-lg">Open daily<br/>from 4pm</div>
-          </div>
-        </section>
+    <main className="min-h-screen overflow-hidden bg-[#f6eddd] text-[#152d55]">
+      <div className="bg-[#f7b83d] px-4 py-2 text-center text-xs font-black uppercase tracking-[0.18em] text-[#152d55]">
+        More choices. More favorites. Something for everyone.
       </div>
 
-      <section id="menu" className="bg-[#17352f] px-5 py-24 text-[#f3efe5] sm:px-8 lg:px-12">
-        <div className="mx-auto max-w-[1400px]">
-          <div className="mb-14 flex flex-col justify-between gap-6 sm:flex-row sm:items-end"><div><p className="mb-4 text-xs font-bold uppercase tracking-[0.28em] text-[#f4c95d]">A few favorites</p><h2 className="font-serif text-5xl tracking-tight sm:text-7xl">From the kitchen</h2></div><p className="max-w-sm text-[#f3efe5]/60">Our menu follows the boats and the seasons. Here today, gone with the tide.</p></div>
-          <div className="divide-y divide-[#f3efe5]/20 border-y border-[#f3efe5]/20">
-            {menu.map((item, i) => <div key={item.name} className="group grid gap-4 py-8 transition hover:pl-3 sm:grid-cols-[50px_1fr_auto] sm:items-center"><span className="text-sm text-[#f4c95d]">0{i + 1}</span><div><h3 className="font-serif text-2xl sm:text-3xl">{item.name}</h3><p className="mt-1 text-sm text-[#f3efe5]/50">{item.note}</p></div><span className="font-serif text-xl">{item.price}</span></div>)}
+      <header className="relative z-20 border-b-2 border-[#152d55] bg-[#f6eddd] px-5 sm:px-8 lg:px-12">
+        <nav className="mx-auto flex h-24 max-w-[1450px] items-center justify-between" aria-label="Main navigation">
+          <a href="#top" className="flex items-center gap-3 font-black uppercase tracking-tight">
+            <span className="grid h-12 w-12 place-items-center rounded-full bg-[#152d55] text-2xl text-[#f7b83d]">OF</span>
+            <span className="hidden sm:block">The Old Fish House</span>
+          </a>
+          <div className="hidden items-center gap-8 text-sm font-black uppercase tracking-wider md:flex">
+            <a className="transition hover:text-[#dd4d28]" href="#menu">Eat</a>
+            <a className="transition hover:text-[#dd4d28]" href="#belly-up">Belly up</a>
+            <a className="transition hover:text-[#dd4d28]" href="#visit">Visit</a>
+          </div>
+          <a href="https://www.google.com/maps/search/?api=1&query=30+Main+St+Huron+OH+44839" target="_blank" rel="noreferrer" className="hidden rounded-full bg-[#152d55] px-6 py-3 text-sm font-black uppercase tracking-wide text-white transition hover:-translate-y-0.5 hover:bg-[#dd4d28] md:block">Get directions</a>
+          <button onClick={() => setNavOpen(!navOpen)} className="grid h-11 w-11 place-items-center rounded-full border-2 border-[#152d55] text-xl md:hidden" aria-label="Toggle menu" aria-expanded={navOpen}>☰</button>
+        </nav>
+        {navOpen && <div className="flex flex-col gap-5 border-t-2 border-[#152d55] py-6 text-lg font-black uppercase md:hidden"><a href="#menu" onClick={() => setNavOpen(false)}>Eat</a><a href="#belly-up" onClick={() => setNavOpen(false)}>Belly up</a><a href="#visit" onClick={() => setNavOpen(false)}>Visit</a></div>}
+      </header>
+
+      <section id="top" className="relative bg-[#235788] px-5 py-14 text-white sm:px-8 lg:px-12 lg:py-20">
+        <div className="mx-auto grid max-w-[1450px] items-center gap-12 lg:grid-cols-[1fr_.9fr]">
+          <div>
+            <p className="mb-5 text-xs font-black uppercase tracking-[0.3em] text-[#f7b83d]">Huron, Ohio • waterfront eats</p>
+            <h1 className="max-w-4xl text-[clamp(4rem,9vw,8.5rem)] font-black uppercase leading-[.78] tracking-[-0.07em]">Same old<br/><span className="text-[#f7b83d]">Fish House</span><br/>flavor.</h1>
+            <p className="mt-8 max-w-xl text-lg leading-8 text-white/75">The Old Fish House is Huron’s come-as-you-are stop for fish favorites, pizzas, subs, shareable snacks, cold drinks, and good times on the water.</p>
+            <div className="mt-9 flex flex-wrap gap-4"><a href="#menu" className="rounded-full bg-[#f7b83d] px-7 py-4 text-sm font-black uppercase tracking-wide text-[#152d55] transition hover:-translate-y-1">See what’s new</a><a href="#visit" className="rounded-full border-2 border-white px-7 py-4 text-sm font-black uppercase tracking-wide transition hover:bg-white hover:text-[#152d55]">Plan your visit</a></div>
+          </div>
+          <div className="relative mx-auto w-full max-w-2xl">
+            <div className="rotate-2 rounded-[2rem] bg-[#f7b83d] p-4 shadow-[18px_18px_0_#10233f]"><img src="/waterfront-dog.jpg" alt="A loaded waterfront hot dog from The Old Fish House" className="aspect-[4/5] w-full rounded-[1.25rem] object-cover" /></div>
+            <div className="absolute -bottom-7 -left-4 -rotate-6 rounded-full bg-[#dd4d28] px-7 py-5 text-center text-sm font-black uppercase tracking-widest text-white shadow-xl">Snacks &<br/>B.S. facts</div>
           </div>
         </div>
       </section>
 
-      <section id="story" className="grid lg:grid-cols-2">
-        <div className="bg-[#f4c95d] p-10 sm:p-20"><p className="text-xs font-bold uppercase tracking-[0.28em]">Since 1987</p><h2 className="mt-10 font-serif text-5xl leading-[.95] tracking-tight sm:text-7xl">Salt in the air.<br/>Joy at the table.</h2></div>
-        <div className="flex items-center bg-[#e34a2c] p-10 text-[#f3efe5] sm:p-20"><div><p className="max-w-xl font-serif text-2xl leading-relaxed sm:text-4xl">“We buy from people we know, cook with the seasons, and never let a good meal get too serious.”</p><p className="mt-8 text-xs font-bold uppercase tracking-[0.25em]">— Mara & Ben, founders</p></div></div>
+      <section className="bg-[#f7b83d] px-5 py-7 sm:px-8 lg:px-12"><div className="mx-auto flex max-w-[1450px] flex-wrap items-center justify-center gap-x-12 gap-y-3 text-center text-sm font-black uppercase tracking-[0.14em] text-[#152d55]"><span>30 Main St, Huron, OH</span><span className="hidden h-2 w-2 rounded-full bg-[#dd4d28] sm:block"/><span>Mon–Thu 4–10</span><span className="hidden h-2 w-2 rounded-full bg-[#dd4d28] sm:block"/><span>Fri–Sun from 11</span></div></section>
+
+      <section id="menu" className="px-5 py-24 sm:px-8 lg:px-12">
+        <div className="mx-auto max-w-[1450px]">
+          <div className="grid gap-10 lg:grid-cols-[.8fr_1.2fr]"><div><p className="text-xs font-black uppercase tracking-[0.3em] text-[#dd4d28]">New menu</p><h2 className="mt-4 text-6xl font-black uppercase leading-[.85] tracking-[-0.06em] sm:text-8xl">Pick your<br/>favorite.</h2><p className="mt-7 max-w-md text-lg leading-8 text-[#152d55]/70">Our expanded menu brings more to the table while keeping the Old Fish House classics right where they belong.</p></div><div className="divide-y-2 divide-[#152d55] border-y-2 border-[#152d55]">{menuGroups.map((item) => <article key={item.number} className="grid gap-3 py-7 sm:grid-cols-[55px_1fr] sm:gap-6"><span className="font-black text-[#dd4d28]">{item.number}</span><div><h3 className="text-2xl font-black uppercase tracking-tight sm:text-3xl">{item.title}</h3><p className="mt-2 max-w-2xl leading-7 text-[#152d55]/65">{item.copy}</p></div></article>)}</div></div>
+        </div>
       </section>
 
-      <footer id="visit" className="bg-[#f3efe5] px-5 py-16 sm:px-8 lg:px-12"><div className="mx-auto grid max-w-[1400px] gap-10 border-t border-[#17352f]/20 pt-10 sm:grid-cols-3"><div><p className="font-serif text-2xl font-bold">FISHHOUSE.</p><p className="mt-3 text-sm text-[#17352f]/60">42 Dock Street<br/>Portsmouth, NH</p></div><div><p className="text-xs font-bold uppercase tracking-widest">Hours</p><p className="mt-3 text-sm text-[#17352f]/60">Sunday–Thursday 4–10<br/>Friday–Saturday 4–11</p></div><div className="sm:text-right"><button onClick={() => setReserved(true)} className="rounded-full bg-[#e34a2c] px-7 py-4 text-sm font-bold text-white transition hover:-translate-y-1">Reserve your table →</button></div></div></footer>
+      <section id="belly-up" className="grid bg-[#10233f] text-white lg:grid-cols-2">
+        <div className="min-h-[500px]"><img src="/patio.jpg" alt="The waterfront patio and Belly Up bar" className="h-full w-full object-cover" /></div>
+        <div className="flex items-center p-10 sm:p-16 lg:p-20"><div><p className="text-xs font-black uppercase tracking-[0.3em] text-[#f7b83d]">The Belly Up bar</p><h2 className="mt-5 text-5xl font-black uppercase leading-[.9] tracking-[-0.05em] sm:text-7xl">Cold drinks.<br/>Waterfront seats.</h2><p className="mt-7 max-w-xl text-lg leading-8 text-white/65">Pull up a chair, grab a round, and stay awhile. From bourbon hour to lemonade and local cans, there’s always something worth raising a glass to.</p></div></div>
+      </section>
 
-      {reserved && <div className="fixed inset-0 z-50 grid place-items-center bg-[#17352f]/70 p-5 backdrop-blur-sm" role="dialog" aria-modal="true" aria-labelledby="reservation-title" onClick={() => setReserved(false)}><div className="w-full max-w-md rounded-3xl bg-[#f3efe5] p-8 shadow-2xl" onClick={(e) => e.stopPropagation()}><button className="float-right text-2xl" onClick={() => setReserved(false)} aria-label="Close">×</button><p className="text-xs font-bold uppercase tracking-[0.25em] text-[#e34a2c]">Reservations</p><h2 id="reservation-title" className="mt-3 font-serif text-4xl">Come sit with us.</h2><p className="mt-4 text-[#17352f]/65">Call us at (603) 555-0142 or send a note and we’ll save you a table.</p><a href="mailto:hello@fishhouse.example" className="mt-7 block rounded-full bg-[#17352f] px-6 py-4 text-center font-bold text-white">Email the fishhouse</a></div></div>}
+      <section className="bg-[#dd4d28] px-5 py-20 text-white sm:px-8 lg:px-12"><div className="mx-auto grid max-w-[1450px] items-center gap-10 lg:grid-cols-[.9fr_1.1fr]"><div><p className="text-xs font-black uppercase tracking-[0.3em] text-[#f7b83d]">Good food. Good company.</p><h2 className="mt-5 text-5xl font-black uppercase leading-[.9] tracking-[-0.05em] sm:text-7xl">Local tastes<br/>better here.</h2><p className="mt-6 max-w-lg text-lg leading-8 text-white/75">Come for the expanded menu, stay for the patio, and bring the people who make a meal memorable.</p></div><div className="rounded-[2rem] bg-[#f6eddd] p-5"><img src="/support-local.png" alt="Support local — The Old Fish House, Huron, Ohio" className="w-full rounded-2xl" /></div></div></section>
+
+      <section id="visit" className="px-5 py-24 sm:px-8 lg:px-12"><div className="mx-auto grid max-w-[1450px] gap-14 lg:grid-cols-[1fr_.85fr]"><div><p className="text-xs font-black uppercase tracking-[0.3em] text-[#dd4d28]">Come find us</p><h2 className="mt-5 text-6xl font-black uppercase leading-[.85] tracking-[-0.06em] sm:text-8xl">Right on<br/>the water.</h2><a href="https://www.google.com/maps/search/?api=1&query=30+Main+St+Huron+OH+44839" target="_blank" rel="noreferrer" className="mt-9 inline-flex rounded-full bg-[#152d55] px-8 py-4 text-sm font-black uppercase tracking-wide text-white transition hover:bg-[#dd4d28]">Open in maps →</a></div><div className="grid content-center gap-8 border-l-2 border-[#152d55] pl-8 sm:pl-12"><div><p className="text-xs font-black uppercase tracking-[.2em] text-[#dd4d28]">Address</p><p className="mt-2 text-2xl font-black uppercase">30 Main Street<br/>Huron, Ohio 44839</p></div><div><p className="text-xs font-black uppercase tracking-[.2em] text-[#dd4d28]">Hours</p><p className="mt-2 text-lg font-bold leading-8">Monday–Thursday: 4pm–10pm<br/>Friday–Sunday: Open at 11am</p></div></div></div></section>
+
+      <footer className="bg-[#152d55] px-5 py-10 text-white sm:px-8 lg:px-12"><div className="mx-auto flex max-w-[1450px] flex-col justify-between gap-4 sm:flex-row sm:items-center"><p className="text-xl font-black uppercase">The Old Fish House</p><p className="text-xs font-bold uppercase tracking-[0.18em] text-white/50">Nik-nax • snacks • B.S. facts</p></div></footer>
     </main>
   );
 }

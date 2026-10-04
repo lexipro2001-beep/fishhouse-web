@@ -3,18 +3,18 @@ import './globals.css';
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://fishhouse-seafood.lexipro2001.chatgpt.site'),
-  title: 'Fishhouse | Fresh from the tide',
-  description: 'A neighborhood fishhouse serving the day’s best catch, simply cooked over flame.',
+  title: 'The Old Fish House | Huron, Ohio',
+  description: 'Waterfront fish favorites, pizzas, subs, shareable snacks, cold drinks, and good times at 30 Main Street in Huron, Ohio.',
   openGraph: {
-    title: 'Fishhouse | Fresh from the tide',
-    description: 'A neighborhood fishhouse serving the day’s best catch, simply cooked over flame.',
-    images: [{ url: '/og.png', width: 1536, height: 1024, alt: 'Fishhouse — Fresh from the tide.' }],
+    title: 'The Old Fish House | Huron, Ohio',
+    description: 'More choices, more favorites, and the same Old Fish House flavor on the Huron waterfront.',
+    images: [{ url: '/support-local.png', width: 1400, height: 1540, alt: 'Support local — The Old Fish House in Huron, Ohio' }],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Fishhouse | Fresh from the tide',
-    description: 'A neighborhood fishhouse serving the day’s best catch, simply cooked over flame.',
-    images: ['/og.png'],
+    title: 'The Old Fish House | Huron, Ohio',
+    description: 'More choices, more favorites, and the same Old Fish House flavor on the Huron waterfront.',
+    images: ['/support-local.png'],
   },
 };
 
